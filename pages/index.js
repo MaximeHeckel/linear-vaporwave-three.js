@@ -174,25 +174,6 @@ const Index = () => {
       height: window.innerHeight,
     };
 
-    // Resize handler
-    window.addEventListener("resize", () => {
-      // Update sizes
-      sizes.width = window.innerWidth;
-      sizes.height = window.innerHeight;
-
-      // Update camera
-      camera.aspect = sizes.width / sizes.height;
-      camera.updateProjectionMatrix();
-      // camera.fog;
-
-      // Update renderer
-      renderer.setSize(sizes.width, sizes.height);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-      composer.setSize(sizes.width, sizes.height);
-      composer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    });
-
     // Base camera
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -273,6 +254,25 @@ const Index = () => {
       .name("Bloom Strength");
 
     effectComposer.addPass(bloomPass);
+
+    // Resize handler
+    window.addEventListener("resize", () => {
+      // Update sizes
+      sizes.width = window.innerWidth;
+      sizes.height = window.innerHeight;
+
+      // Update camera
+      camera.aspect = sizes.width / sizes.height;
+      camera.updateProjectionMatrix();
+      // camera.fog;
+
+      // Update renderer
+      renderer.setSize(sizes.width, sizes.height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      effectComposer.setSize(sizes.width, sizes.height);
+      effectComposer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    });
 
     // Animation
     const clock = new THREE.Clock();
