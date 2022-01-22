@@ -320,12 +320,6 @@ const Index = () => {
             <a href="https://twitter.com/MaximeHeckel">@MaximeHeckel</a> with
             Three.js
           </p>
-          <p className="label">
-            👉 How I built this?{" "}
-            <a href="https://blog.maximeheckel.com/posts/vaporwave-3d-scene-with-threejs/">
-              Building a Vaporwave scene with Three.js
-            </a>
-          </p>
         </div>
         <canvas ref={mountRef} className="webgl"></canvas>
       </main>
